@@ -40,6 +40,12 @@ flowchart LR
     D --> H["Price prediction model"]
 ```
 
+## Analytics Preview
+
+![European airline routes analytics preview](screenshots/route-analytics-preview.png)
+
+This preview was generated from the included `data/raw/europe_air_routes.zip` file. It highlights the busiest departure countries by weekly flight volume and weekly flights by ticket price band.
+
 ## Repository Structure
 
 ```text
@@ -163,6 +169,12 @@ python3 -m unittest discover -s tests
 python3 scripts/inspect_dataset.py
 python3 -m json.tool dashboards/databricks/eu_air_routes_dashboard.lvdash.json > /tmp/dashboard_check.json
 ```
+
+Validated locally:
+
+- `python3 -m unittest discover -s tests` passed.
+- `python3 scripts/inspect_dataset.py` confirmed the included route archive, 33 columns, and no missing expected columns.
+- Generated `screenshots/route-analytics-preview.png` from the included route CSV bundle.
 
 ## Skills Demonstrated
 

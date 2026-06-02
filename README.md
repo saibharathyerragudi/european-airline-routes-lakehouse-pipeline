@@ -1,6 +1,6 @@
 # European Airline Routes Big Data Analytics
 
-An end-to-end Databricks analytics project for European airline route data. The project cleans and enriches route-level flight data, stores the curated output in Delta Lake, builds SQL analytics and a Databricks dashboard, and trains a regression model to estimate ticket prices.
+An end-to-end Databricks analytics project for European airline route data. The project cleans and enriches route-level flight data, stores the curated output in Delta Lake, builds SQL analytics, includes a Databricks AI/BI dashboard export, and trains a regression model to estimate ticket prices.
 
 This repository is organized as a professional case study with numbered notebooks, a dashboard export, data documentation, architecture notes, and lightweight validation scripts.
 
@@ -11,7 +11,7 @@ This repository is organized as a professional case study with numbered notebook
 | Domain | Airline network and route analytics |
 | Platform | Databricks, Spark, Delta Lake, Unity Catalog |
 | Dataset | European airline routes, prices, schedules, airports, countries, and coordinates |
-| Deliverables | ETL notebook, EDA notebook, SQL analysis notebook, Databricks dashboard JSON, ML notebook |
+| Deliverables | ETL notebook, EDA notebook, SQL analysis notebook, Databricks AI/BI dashboard JSON export, ML notebook |
 | Modeling Goal | Predict route price using distance, weekly frequency, and operating-day features |
 | Analysis Focus | Route demand, country-level flight volume, distance-price behavior, daily routes, price bands |
 
@@ -36,7 +36,7 @@ flowchart LR
     C --> D["Clean Delta table"]
     D --> E["EDA notebook"]
     D --> F["SQL analysis"]
-    F --> G["Databricks dashboard"]
+    F --> G["Databricks AI/BI dashboard"]
     D --> H["Price prediction model"]
 ```
 
@@ -134,9 +134,9 @@ Key engineered fields include:
 - Haversine `distance_km`
 - `price_per_km`
 
-## SQL Dashboard
+## Databricks AI/BI Dashboard
 
-The Databricks dashboard export is available at:
+Databricks supports AI/BI dashboards, formerly known as Lakeview dashboards. This project includes a Databricks dashboard export in `.lvdash.json` format:
 
 ```text
 dashboards/databricks/eu_air_routes_dashboard.lvdash.json

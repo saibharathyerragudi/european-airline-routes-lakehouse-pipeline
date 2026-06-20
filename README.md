@@ -40,11 +40,31 @@ flowchart LR
     D --> H["Price prediction model"]
 ```
 
-## Analytics Preview
+## Architecture
 
-![European airline routes analytics preview](screenshots/route-analytics-preview.png)
+![European Airline Routes Analytics Architecture](screenshots/eu-air-routes-architecture.png)
 
-This preview was generated from the included `data/raw/europe_air_routes.zip` file. It highlights the busiest departure countries by weekly flight volume and weekly flights by ticket price band.
+The deployed workflow ingests the route CSV into a Unity Catalog volume, materializes raw and cleaned Delta tables, and serves the curated data to SQL analytics, machine learning, and a Databricks AI/BI dashboard.
+
+## Databricks Dashboard
+
+| Weekly flight volume by country | Price vs. distance |
+|---|---|
+| ![Total flight volume by departure country](screenshots/dashboard-flight-volume.png) | ![Price versus distance bucket](screenshots/dashboard-price-distance.png) |
+
+![Top 15 busiest European air routes](screenshots/dashboard-busiest-routes.png)
+
+The dashboard surfaces route demand, geographic concentration, and price-distance behavior from the clean Delta table.
+
+## Notebook Analysis
+
+| Geographic airport coverage | Route-distance distribution |
+|---|---|
+| ![Geographic scatter of departure and arrival airports](screenshots/notebook-visuals/eda-1.png) | ![Distribution of route distances](screenshots/notebook-visuals/eda-2.png) |
+
+| Weekly flights by departure country | Actual vs. predicted ticket prices |
+|---|---|
+| ![Total weekly flights by departure country](screenshots/notebook-visuals/eda-4.png) | ![Actual versus predicted flight prices](screenshots/notebook-visuals/ml-price-prediction.png) |
 
 ## Repository Structure
 
@@ -117,11 +137,11 @@ python3 scripts/inspect_dataset.py
 The notebooks use the following Unity Catalog-style table names:
 
 ```text
-workspace.eu_air_routes.europe_air_routes_raw
-workspace.eu_air_routes.eu_air_routes_clean
+databricks_course_s.eu_air_routes.europe_air_routes_raw
+databricks_course_s.eu_air_routes.eu_air_routes_clean
 ```
 
-If your Databricks catalog or schema differs, update the table references in the notebooks before running them.
+The deployed project uses the `databricks_course_s` catalog and `eu_air_routes` schema. If you import the notebooks into another workspace, update the catalog references before running them.
 
 ## Feature Engineering
 
@@ -174,7 +194,8 @@ Validated locally:
 
 - `python3 -m unittest discover -s tests` passed.
 - `python3 scripts/inspect_dataset.py` confirmed the included route archive, 33 columns, and no missing expected columns.
-- Generated `screenshots/route-analytics-preview.png` from the included route CSV bundle.
+- Verified 18,111 rows in both the raw and clean Delta tables.
+- Added the deployed Databricks dashboard and notebook output gallery.
 
 ## Skills Demonstrated
 

@@ -9,7 +9,7 @@
         "  departure_country,\n",
         "  SUM(flights_per_week) AS total_flights_per_week,\n",
         "  AVG(distance_km)      AS avg_distance_km\n",
-        "FROM workspace.eu_air_routes.eu_air_routes_clean\n",
+        "FROM databricks_course_s.eu_air_routes.eu_air_routes_clean\n",
         "GROUP BY departure_country\n",
         "ORDER BY total_flights_per_week DESC;\n"
       ]
@@ -23,7 +23,7 @@
         "  departure_country,\n",
         "  SUM(flights_per_week) AS total_flights_per_week,\n",
         "  AVG(distance_km)      AS avg_distance_km\n",
-        "FROM workspace.eu_air_routes.eu_air_routes_clean\n",
+        "FROM databricks_course_s.eu_air_routes.eu_air_routes_clean\n",
         "GROUP BY departure_country\n",
         "ORDER BY total_flights_per_week DESC;\n"
       ]
@@ -38,7 +38,7 @@
         "  COUNT(*)               AS route_count,\n",
         "  AVG(price)             AS avg_price,\n",
         "  AVG(price_per_km)      AS avg_price_per_km\n",
-        "FROM workspace.eu_air_routes.eu_air_routes_clean\n",
+        "FROM databricks_course_s.eu_air_routes.eu_air_routes_clean\n",
         "WHERE distance_km IS NOT NULL\n",
         "GROUP BY ROUND(distance_km, -1)\n",
         "ORDER BY distance_bucket_km;\n"
@@ -54,7 +54,7 @@
         "  COUNT(*)               AS route_count,\n",
         "  AVG(price)             AS avg_price,\n",
         "  AVG(price_per_km)      AS avg_price_per_km\n",
-        "FROM workspace.eu_air_routes.eu_air_routes_clean\n",
+        "FROM databricks_course_s.eu_air_routes.eu_air_routes_clean\n",
         "WHERE distance_km IS NOT NULL\n",
         "GROUP BY ROUND(distance_km, -1)\n",
         "ORDER BY distance_bucket_km;\n"
@@ -70,7 +70,7 @@
         "  COUNT(*)               AS route_count,\n",
         "  AVG(price)             AS avg_price,\n",
         "  AVG(price_per_km)      AS avg_price_per_km\n",
-        "FROM workspace.eu_air_routes.eu_air_routes_clean\n",
+        "FROM databricks_course_s.eu_air_routes.eu_air_routes_clean\n",
         "WHERE distance_km IS NOT NULL\n",
         "GROUP BY ROUND(distance_km, -1)\n",
         "ORDER BY distance_bucket_km;\n"
@@ -89,7 +89,7 @@
         "  flights_per_week,\n",
         "  distance_km,\n",
         "  price\n",
-        "FROM workspace.eu_air_routes.eu_air_routes_clean\n",
+        "FROM databricks_course_s.eu_air_routes.eu_air_routes_clean\n",
         "ORDER BY flights_per_week DESC\n",
         "LIMIT 15;\n"
       ]

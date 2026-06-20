@@ -1,4 +1,4 @@
-# European Airline Routes Big Data Analytics
+# European Airline Routes Lakehouse Pipeline
 
 An end-to-end Databricks analytics project for European airline route data. The project cleans and enriches route-level flight data, stores the curated output in Delta Lake, builds SQL analytics, includes a Databricks AI/BI dashboard export, and trains a regression model to estimate ticket prices.
 
@@ -69,7 +69,7 @@ The dashboard surfaces route demand, geographic concentration, and price-distanc
 ## Repository Structure
 
 ```text
-European-Airline-Routes-Big-Data-Analytics/
+european-airline-routes-lakehouse-pipeline/
 ├── README.md
 ├── dashboards/
 │   └── databricks/

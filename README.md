@@ -27,19 +27,6 @@ This project answers:
 - How can coordinates be transformed into usable distance and price-per-km metrics?
 - Can a simple model explain price using distance and route-frequency features?
 
-## Workflow
-
-```mermaid
-flowchart LR
-    A["Raw route CSV"] --> B["Databricks raw table"]
-    B --> C["ETL and feature engineering"]
-    C --> D["Clean Delta table"]
-    D --> E["EDA notebook"]
-    D --> F["SQL analysis"]
-    F --> G["Databricks AI/BI dashboard"]
-    D --> H["Price prediction model"]
-```
-
 ## Architecture
 
 ![European Airline Routes Analytics Architecture](screenshots/eu-air-routes-architecture.png)
